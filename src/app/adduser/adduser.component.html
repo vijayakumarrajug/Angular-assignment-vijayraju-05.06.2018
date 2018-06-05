@@ -1,0 +1,101 @@
+<section>
+	<div class="row">
+		<div class="col-md-12">Add Users</div>
+	</div>
+	<form [formGroup]="newForm" (ngSubmit)="submitForm()" novalidate="novalidate">
+		<div class="row" style="margin-top:1%;">
+			<div class="col-md-4">				
+				  <div class="form-group">
+				    <label for="id">Id</label>
+				    <input type="number" class="form-control" id="id" name="id" formControlName="id">
+				    <div class="form-control-feedback requiredError"
+                         *ngIf="id.errors && showErr">
+                        <p *ngIf="id.errors.required">Id is required</p>   
+                  	</div>
+				  </div>	
+			</div>
+			<div class="col-md-4">
+			 	<div class="form-group">
+				    <label for="name">Name:</label>
+				    <input type="text" class="form-control" id="name" name="name" formControlName="name">
+				    <div class="form-control-feedback requiredError"
+                         *ngIf="name.errors && showErr">
+                        <p *ngIf="name.errors.required">Name is required</p>   
+                  	</div>
+			  	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="surname">Surname:</label>
+				    <input type="text" class="form-control" id="surname" name="surname" formControlName="surname">
+				    <div class="form-control-feedback requiredError"
+                         *ngIf="surname.errors && showErr">
+                        <p *ngIf="surname.errors.required">Surname is required</p>   
+                  	</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="row" style="margin-top:1%;">
+			<div class="col-md-4">
+			 	<div class="form-group">
+				    <label for="dob">Birthdate:</label>
+				    <input type="date" class="form-control" id="dob" name="dob" formControlName="dob">
+			     	<div class="form-control-feedback requiredError"
+                         *ngIf="dob.errors && showErr">
+                        <p *ngIf="dob.errors.required">Birthdate is required</p>   
+                  	</div>
+			  	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="phone">Phone:</label>
+				    <input type="number" class="form-control" id="phone" name="phone" formControlName="phone">
+				    <div class="form-control-feedback requiredError"
+                         *ngIf="phone.errors && showErr">
+                        <p *ngIf="phone.errors.required">Phone is required</p>   
+                  	</div>
+			  	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="city">City:</label>
+				    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+				    <div class="form-control-feedback requiredError"
+                         *ngIf="city.errors && showErr">
+                        <p *ngIf="city.errors.required">City is required</p>   
+                  	</div>
+				  </div>
+			</div>
+		</div>
+		<div class="row" style="margin-top:1%;">
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="street">Street:</label>
+				    <input type="text" class="form-control" id="street" name="street" formControlName="street">
+				    <div class="form-control-feedback requiredError"
+                         *ngIf="street.errors && showErr">
+                        <p *ngIf="street.errors.required">Street is required</p>   
+                  	</div>
+			  	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="number">Number:</label>
+				    <input type="text" class="form-control" id="number" name="numberval" formControlName="numberval">
+			     	<div class="form-control-feedback requiredError"
+                         *ngIf="numberval.errors && showErr">
+                        <p *ngIf="numberval.errors.required">Numberval is required</p>   
+                  	</div>
+			  	</div>
+			</div>
+			<div class="col-md-4">
+
+			</div>
+		</div>
+		<div class="row" style="margin-top:1%;">
+			<div class="col-md-12">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>			
+		</div>
+	</form>
+</section>

@@ -1,0 +1,115 @@
+<section *ngIf="defaultView">
+	<div class="row mrgn_btm_1">
+		<div class="col-md-4">
+			<div>List of Users</div>
+		</div>
+		<div class="col-md-4"></div>
+		<div class="col-md-4 txt_rght">
+			<span>Search by Name: <input type="text" name="searchText" [(ngModel)]="searchText" placeholder="Search By Name" (ngModelChange)="filter($event)"/>&nbsp;&nbsp;<button type="button" class="btn btn-primary" (click)="clearVal()">Clear</button></span>
+		</div>
+	</div>
+</section>
+<table *ngIf="defaultView" class="table table-striped table-bordered">
+	<thead>
+		<tr class="tb_header_bg_clr tble_pd_row">
+			<th colspan="10" class="txt_center">List of Users</th>
+		</tr>
+      	<tr class="tb_header_bg_clr tble_pd_row">
+	        <th>Id</th>
+	        <th>Name</th>
+	        <th>Surname</th>
+	        <th>Birthdate</th>
+	        <th>Phone</th>
+	        <th>City</th>
+	        <th>Street</th>
+	        <th>Number</th>
+	        <th></th>
+	        <th></th>
+      	</tr>
+    </thead>
+    <tbody>
+      	<tr class="tble_pd_row" *ngFor="let user of users  | filter:searchText ; let i = index" id="{{user.id}}">
+	        <td>{{user.id}}</td>
+	        <td>{{user.name}}</td>
+	        <td>{{user.surname}}</td>
+	        <td>{{user.dob}}</td>
+	        <td>{{user.phone}}</td>
+	        <td>{{user.city}}</td>
+	        <td>{{user.street}}</td>
+	        <td>{{user.numberval}}</td>
+	        <td><button type="button" class="btn btn-primary" (click)="deleteItem(user.id)">Delete</button></td>
+	        <td><button type="button" class="btn btn-primary" (click)="editItem(i)">Edit</button></td>
+      	</tr>
+    </tbody>
+</table>
+
+<section *ngIf="editView">
+	<div class="row">
+		<div class="col-md-12">Edit Users</div>
+	</div>
+	<form [formGroup]="newForm" (ngSubmit)="updateItem()" novalidate="novalidate">
+		<div class="row" style="margin-top:1%;">
+			<div class="col-md-4">				
+				  <div class="form-group">
+				    <label for="id">Id</label>
+				    <input type="text" class="form-control" id="id" [(ngModel)]="editValues.id" value="{{editValues.id}}" name="id" formControlName="id">
+				  </div>	
+			</div>
+			<div class="col-md-4">
+			 	<div class="form-group">
+				    <label for="name">Name:</label>
+				    <input type="text" class="form-control" id="name" [(ngModel)]="editValues.name" value="{{editValues.name}}" name="name" formControlName="name">
+			  	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="surname">Surname:</label>
+				    <input type="text" class="form-control" id="surname" [(ngModel)]="editValues.surname" value="{{editValues.surname}}" formControlName="surname">
+			  	</div>
+			</div>
+		</div>
+		<div class="row" style="margin-top:1%;">
+			<div class="col-md-4">
+			 	<div class="form-group">
+				    <label for="dob">Birthdate:</label>
+				    <input type="date" class="form-control" id="dob" [(ngModel)]="editValues.dob" value="{{editValues.dob}}" name="dob" formControlName="dob">
+			  	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="phone">Phone:</label>
+				    <input type="number" class="form-control" id="phone" [(ngModel)]="editValues.phone" value="{{editValues.phone}}" name="phone" formControlName="phone">
+			  	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="city">City:</label>
+				    <input type="text" class="form-control" id="city" [(ngModel)]="editValues.city" value="{{editValues.city}}" name="city" formControlName="city">
+				  </div>
+			</div>
+		</div>
+		<div class="row" style="margin-top:1%;">
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="street">Street:</label>
+				    <input type="text" class="form-control" id="street" [(ngModel)]="editValues.street" value="{{editValues.street}}" name="street" formControlName="street">
+			  	</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				    <label for="number">Number:</label>
+				    <input type="text" class="form-control" id="number" name="numberval" [(ngModel)] ="editValues.numberval" value="{{editValues.numberval}}" name="numberval" formControlName="numberval">
+			  	</div>
+			</div>
+			<div class="col-md-4">
+
+			</div>
+		</div>
+		<div class="row" style="margin-top:1%;">
+			<div class="col-md-12">
+				<button type="submit" class="btn btn-primary" (click)="updateItem()">Update</button>
+			</div>			
+		</div>
+	</form>
+</section>
+

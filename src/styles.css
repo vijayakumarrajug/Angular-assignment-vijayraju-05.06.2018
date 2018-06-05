@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.main_title, .sub_title{
+	text-align: center;
+}
+.main_title h1{
+	font-size: 5em;
+	font-weight: 700;
+	line-height: 70px;
+}
+.navbar-default{
+    background-color: #ccc;
+    border-color: #ccc;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #000000;
+    background-color: #f2f2f2;
+}
+.nav>li{
+    font-weight: 600;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+}
+.navbar-default{
+	border:none;
+    border-radius: initial;
+}
+.txt_center{
+	text-align: center;
+}
+.tb_header_bg_clr{
+    background: #f1f0f0;
+}
+.pd_all_1{
+	padding: 1%;
+}
+.tble_pd_row th, .tble_pd_row td{
+	padding: 1% !import;
+}
+.txt_rght{
+	text-align: right;
+}
+.mrgn_btm_1{
+	margin-bottom: 1%;
+}
